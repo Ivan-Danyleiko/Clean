@@ -14,7 +14,6 @@ def normalize(input_str, is_unknown=False):
     name, extension = os.path.splitext(input_str)
     normalized_name = ''
 
-    # Додано перевірку для одиночної букви
     if len(name) == 1 and name.isalpha():
         return translit_mapping.get(name.lower(), name)
 
@@ -155,7 +154,7 @@ def display_file_contents(file_path):
         contents = file.read()
         print(contents)
 
-if __name__ == "__main__":
+def main():
     if len(sys.argv) != 2:
         print('Usage: python "script_path" "folder_path"')
     else:
@@ -178,3 +177,6 @@ if __name__ == "__main__":
         remove_empty_folders(folder_path)
         remove_empty_folders(destination_folder)
         display_file_contents(output_file)
+
+if __name__ == "__main__":
+    main()
